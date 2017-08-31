@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// Heroku will set this port env variable
+const port = process.env.port || 3000;
+
 var app = express();
 
 // Register handlebar partials path
@@ -70,8 +73,8 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
 
 
